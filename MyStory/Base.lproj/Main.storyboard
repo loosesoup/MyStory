@@ -42,16 +42,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Where am I from"/>
+                                        <connections>
+                                            <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ilk-tQ-tqm"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mQ-93-nhl">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mQ-93-nhl">
                                         <rect key="frame" x="18.999999999999986" y="42.333333333333314" width="112.00000000000001" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Occupation"/>
+                                        <connections>
+                                            <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zkZ-WB-WU6"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-5W-5mT">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-5W-5mT">
                                         <rect key="frame" x="30.999999999999979" y="84.666666666666686" width="87.666666666666686" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Hobbies"/>
+                                        <connections>
+                                            <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vKN-ks-FS2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -74,21 +83,50 @@
             </objects>
             <point key="canvasLocation" x="18" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="OeA-2Z-fzs">
             <objects>
-                <viewController id="qwf-F0-WTy" sceneMemberID="viewController">
+                <viewController id="qwf-F0-WTy" customClass="DetailViewController" customModule="MyStory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PkN-sh-1vA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHF-Vo-LhF">
+                                <rect key="frame" x="16" y="363" width="361" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mvG-3G-hgk">
+                                <rect key="frame" x="0.0" y="103" width="393" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Kj2-oL-wbq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iGE-wn-gBy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uHF-Vo-LhF" secondAttribute="trailing" id="2xn-yw-5d2"/>
+                            <constraint firstItem="mvG-3G-hgk" firstAttribute="centerX" secondItem="PkN-sh-1vA" secondAttribute="centerX" id="57r-V7-sHR"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uHF-Vo-LhF" secondAttribute="bottom" constant="16" id="EXi-rP-AhF"/>
+                            <constraint firstItem="mvG-3G-hgk" firstAttribute="leading" secondItem="PkN-sh-1vA" secondAttribute="leading" id="HYu-w4-Qeg"/>
+                            <constraint firstItem="mvG-3G-hgk" firstAttribute="top" secondItem="iGE-wn-gBy" secondAttribute="top" id="OUD-oG-KBJ"/>
+                            <constraint firstItem="uHF-Vo-LhF" firstAttribute="top" secondItem="mvG-3G-hgk" secondAttribute="bottom" constant="60" id="WnX-Ju-xpM"/>
+                            <constraint firstItem="uHF-Vo-LhF" firstAttribute="leading" secondItem="PkN-sh-1vA" secondAttribute="leading" constant="16" id="Y1a-68-Bb7"/>
+                            <constraint firstAttribute="trailing" secondItem="mvG-3G-hgk" secondAttribute="trailing" id="auK-R9-4Ze"/>
+                            <constraint firstItem="uHF-Vo-LhF" firstAttribute="centerX" secondItem="mvG-3G-hgk" secondAttribute="centerX" id="dVO-zh-UMF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KOJ-Pw-hlS"/>
+                    <connections>
+                        <outlet property="answer" destination="uHF-Vo-LhF" id="aGF-hG-xzM"/>
+                        <outlet property="image" destination="mvG-3G-hgk" id="JFY-FD-bji"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6o-VJ-N5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="-2"/>
+            <point key="canvasLocation" x="910.68702290076328" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
